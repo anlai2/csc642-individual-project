@@ -6,6 +6,7 @@ module.exports = function validateRegisterInput(data) {
   console.log(data);
   data.firstName = !isEmpty(data.firstName) ? data.firstName : '';
   data.lastName = !isEmpty(data.lastName) ? data.lastName : '';
+  data.address = !isEmpty(data.address) ? data.address : '';
   data.email = !isEmpty(data.email) ? data.email : '';
   data.password = !isEmpty(data.password) ? data.password : '';
   data.password2 = !isEmpty(data.password2) ? data.password2 : '';
@@ -36,6 +37,10 @@ module.exports = function validateRegisterInput(data) {
 
   if (!Validator.isLength(data.address, { min: 2, max: 40 })) {
     errors.address = 'Address must be between 2 and 40 alphanumeric characters';
+  }
+
+  if (!Validator.isLength(data.zipcode, { min: 5, max: 5 })) {
+    errors.zipcode = 'Zipcode must be 5 numbers';
   }
 
   if (!Validator.isEmail(data.email)) {

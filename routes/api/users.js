@@ -40,6 +40,7 @@ router.post('/register', (req, res) => {
         password2: req.body.password2
       });
 
+      // Encrypt passwords
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;

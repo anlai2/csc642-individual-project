@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     required: true
   },
   zipcode: {
-    type: Number,
+    type: String,
     required: true
   },
   education: {
