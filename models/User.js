@@ -34,6 +34,10 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  password2: {
+    type: String,
+    required: true
   }
 });
 
