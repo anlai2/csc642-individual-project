@@ -10,9 +10,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <Route exact path="/" component={Register} />
-        </Router>
+        <div className="App">
+          <Router>
+            <Route exact path="/" component={Register} />
+          </Router>
+        </div>
       </Provider>
     );
   }
