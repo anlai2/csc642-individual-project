@@ -38,14 +38,25 @@ class Register extends Component {
               <div className="col-md-8 m-auto">
                 <h3 className="display-4 text-center mb-4 mt-4">Register</h3>
                 <form onSubmit={this.onSubmit}>
-                  <div className="form-group">
-                    <TextFieldGroup
-                      placeholder="First Name"
-                      name="firstName"
-                      value={this.state.firstName}
-                      onChange={this.onChange}
-                      error={errors.firstName}
-                    />
+                  <div className="row">
+                    <div className="col">
+                      <TextFieldGroup
+                        placeholder="First Name"
+                        name="firstName"
+                        value={this.state.firstName}
+                        onChange={this.onChange}
+                        error={errors.firstName}
+                      />
+                    </div>
+                    <div className="col">
+                      <TextFieldGroup
+                        placeholder="Last Name"
+                        name="lastName"
+                        value={this.state.lastName}
+                        onChange={this.onChange}
+                        error={errors.lastName}
+                      />
+                    </div>
                   </div>
                   <div className="form-group">
                     <input
