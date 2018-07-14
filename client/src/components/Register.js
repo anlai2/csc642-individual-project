@@ -27,6 +27,12 @@ class Register extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -74,7 +80,7 @@ class Register extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>CSC 642 Summer 2018 Individual Assignment Andy Lai</h1>
+          <h2>CSC 642 Summer 2018 Individual Assignment Andy Lai</h2>
         </header>
         <div className="register">
           <div className="container">
@@ -83,7 +89,7 @@ class Register extends Component {
                 <h3 className="display-4 text-center mb-4 mt-4">
                   Registration Form
                 </h3>
-                <p className="d-block pb-3">* = required fields</p>
+                <small className="d-block pb-3">* = required fields</small>
                 <form noValidate onSubmit={this.onSubmit}>
                   <div className="row">
                     <div className="col">
