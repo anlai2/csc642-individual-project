@@ -45,6 +45,10 @@ module.exports = function validateRegisterInput(data) {
     errors.zipcode = 'Zipcode must be 5 numbers';
   }
 
+  if (Validator.isEmpty(data.phone)) {
+    errors.phone = 'Phone number is required';
+  }
+
   if (!Validator.isEmail(data.email)) {
     errors.email = 'Email is invalid';
   }

@@ -67,14 +67,14 @@ class Register extends Component {
       { label: 'High School', value: 'High School' },
       { label: 'College', value: 'College' },
       { label: 'Graduate Studies', value: 'Graduate Studies' },
-      { label: 'PHD', value: 'PHD' }
+      { label: 'PHD', value: 'Ph.D' }
     ];
 
     const incomeOptions = [
       { label: 'Select Income', value: 0 },
-      { label: 'Less than $50K', value: '< $50K' },
-      { label: '$50 - $100K', value: '$50 - $100K' },
-      { label: 'Greater than $100K', value: '> $100K' }
+      { label: 'Less than $50K', value: 'Less than $50K' },
+      { label: 'Between $50 and $100K', value: 'Between $50 and $100K' },
+      { label: 'Greater than $100K', value: 'Greater than $100K' }
     ];
 
     return (
@@ -212,12 +212,19 @@ class Register extends Component {
                     <label className="form-check-label">
                       I agree to the terms and conditions.
                     </label>
+                    <small>
+                      <p className="text-danger">{errors.terms}</p>
+                    </small>
                     <hr />
                     <ReCAPTCHA
                       ref="recaptcha"
                       sitekey="6LdA7GMUAAAAANYVPP-K1G8PQu-yjMtYp5yE3MGG"
                       onChange={() => this.setState({ recaptcha: true })}
+                      onExpired={() => this.setState({ recaptcha: false })}
                     />
+                    <small>
+                      <p className="text-danger">{errors.recaptcha}</p>
+                    </small>
                   </div>
                   <div className="form-group">
                     <input
