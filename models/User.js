@@ -42,6 +42,14 @@ const UserSchema = new Schema({
   password2: {
     type: String,
     required: true
+  },
+  terms: {
+    type: Boolean,
+    required: true
+  },
+  recaptcha: {
+    type: Boolean,
+    required: true
   }
 });
 

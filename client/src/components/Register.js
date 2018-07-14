@@ -17,14 +17,15 @@ class Register extends Component {
       email: '',
       password: '',
       password2: '',
+      terms: false,
       recaptcha: false,
       errors: {}
     };
   }
 
-  onChange(e) {
+  onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
   render() {
     const { errors } = this.state;
@@ -62,7 +63,7 @@ class Register extends Component {
                       />
                     </div>
                   </div>
-                  <hr />
+                  <br />
                   <div className="form-group">
                     <TextFieldGroup
                       placeholder="* Address"
@@ -81,7 +82,7 @@ class Register extends Component {
                       error={errors.zipcode}
                     />
                   </div>
-                  <hr />
+                  <br />
                   <div className="form-group">
                     <TextFieldGroup
                       placeholder="Education"
@@ -100,7 +101,7 @@ class Register extends Component {
                       error={errors.income}
                     />
                   </div>
-                  <hr />
+                  <br />
                   <div className="row">
                     <div className="col">
                       <TextFieldGroup
@@ -121,7 +122,7 @@ class Register extends Component {
                       />
                     </div>
                   </div>
-                  <hr />
+                  <br />
                   <div className="form-group">
                     <TextFieldGroup
                       placeholder="* Password"
@@ -130,6 +131,9 @@ class Register extends Component {
                       onChange={this.onChange}
                       error={errors.password}
                     />
+                    <small id="passwordHelpInline" class="text-muted">
+                      Must be 6-30 characters long.
+                    </small>
                   </div>
                   <div className="form-group">
                     <TextFieldGroup
@@ -140,15 +144,32 @@ class Register extends Component {
                       error={errors.password2}
                     />
                   </div>
-                  <ReCAPTCHA
-                    ref="recaptcha"
-                    sitekey="6LdA7GMUAAAAANYVPP-K1G8PQu-yjMtYp5yE3MGG"
-                    onChange={() => this.setState({ recaptcha: true })}
-                  />
-                  <input
-                    type="submit"
-                    className="btn btn-primary btn-block mt-4"
-                  />
+                  <div className="form-group float-left">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      onClick={() =>
+                        this.setState({ terms: !this.state.terms })
+                      }
+                      id="defaultCheck1"
+                      checked={this.state.terms}
+                    />
+                    <label class="form-check-label" for="defaultCheck1">
+                      I agree to the terms and conditions.
+                    </label>
+                    <hr />
+                    <ReCAPTCHA
+                      ref="recaptcha"
+                      sitekey="6LdA7GMUAAAAANYVPP-K1G8PQu-yjMtYp5yE3MGG"
+                      onChange={() => this.setState({ recaptcha: true })}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="submit"
+                      className="btn btn-primary btn-block mt-6"
+                    />
+                  </div>
                 </form>
               </div>
             </div>

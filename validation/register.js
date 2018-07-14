@@ -63,6 +63,14 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = 'Passwords must match';
   }
 
+  if (!data.terms) {
+    errors.terms = 'Must agree to our terms and conditions';
+  }
+
+  if (!data.recaptcha) {
+    errors.recaptcha = "Must prove you don't speak robot";
+  }
+
   return {
     errors,
     isValid: isEmpty(errors)

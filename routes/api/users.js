@@ -37,7 +37,9 @@ router.post('/register', (req, res) => {
         phone: req.body.phone,
         email: req.body.email,
         password: req.body.password,
-        password2: req.body.password2
+        password2: req.body.password2,
+        terms: req.body.terms,
+        recaptcha: req.body.recaptcha
       });
 
       // Encrypt passwords
