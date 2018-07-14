@@ -7,6 +7,8 @@ module.exports = function validateRegisterInput(data) {
   data.firstName = !isEmpty(data.firstName) ? data.firstName : '';
   data.lastName = !isEmpty(data.lastName) ? data.lastName : '';
   data.address = !isEmpty(data.address) ? data.address : '';
+  data.zipcode = !isEmpty(data.zipcode) ? data.zipcode : '';
+  data.phone = !isEmpty(data.phone) ? data.phone : '';
   data.email = !isEmpty(data.email) ? data.email : '';
   data.password = !isEmpty(data.password) ? data.password : '';
   data.password2 = !isEmpty(data.password2) ? data.password2 : '';
@@ -68,7 +70,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (!data.recaptcha) {
-    errors.recaptcha = "Must prove you don't speak robot";
+    errors.recaptcha = "Must prove you don't speak binary";
   }
 
   return {

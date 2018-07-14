@@ -1,0 +1,3 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const REGISTER_USER_DATA = 'REGISTER_USER_DATA';

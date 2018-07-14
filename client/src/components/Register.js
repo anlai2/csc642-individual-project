@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { connect } from 'react-redux';
+import { registerUser } from '../actions/authActions';
 import TextFieldGroup from './common/TextFieldGroup';
+import SelectListGroup from './common/SelectListGroup';
 import Footer from './layout/Footer';
 
 class Register extends Component {
@@ -27,8 +31,46 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+
+    const newUser = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      address: this.state.address,
+      zipcode: this.state.zipcode,
+      education: this.state.education,
+      income: this.state.income,
+      phone: this.state.phone,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+      terms: this.state.terms,
+      recaptcha: this.state.recaptcha
+    };
+
+    this.props.registerUser(newUser, this.props.history);
+  };
+
   render() {
+    console.log(this.state);
     const { errors } = this.state;
+
+    const educationOptions = [
+      { label: 'Select Education', value: 0 },
+      { label: 'High School', value: 'High School' },
+      { label: 'College', value: 'College' },
+      { label: 'Graduate Studies', value: 'Graduate Studies' },
+      { label: 'PHD', value: 'PHD' }
+    ];
+
+    const incomeOptions = [
+      { label: 'Select Income', value: 0 },
+      { label: 'Less than $50K', value: '< $50K' },
+      { label: '$50 - $100K', value: '$50 - $100K' },
+      { label: 'Greater than $100K', value: '> $100K' }
+    ];
+
     return (
       <div className="App">
         <header className="App-header">
@@ -42,7 +84,7 @@ class Register extends Component {
                   Registration Form
                 </h3>
                 <p className="d-block pb-3">* = required fields</p>
-                <form onSubmit={this.onSubmit}>
+                <form noValidate onSubmit={this.onSubmit}>
                   <div className="row">
                     <div className="col">
                       <TextFieldGroup
@@ -84,20 +126,22 @@ class Register extends Component {
                   </div>
                   <br />
                   <div className="form-group">
-                    <TextFieldGroup
+                    <SelectListGroup
                       placeholder="Education"
                       name="education"
                       value={this.state.education}
                       onChange={this.onChange}
+                      options={educationOptions}
                       error={errors.education}
                     />
                   </div>
                   <div className="form-group">
-                    <TextFieldGroup
+                    <SelectListGroup
                       placeholder="Income"
                       name="income"
                       value={this.state.income}
                       onChange={this.onChange}
+                      options={incomeOptions}
                       error={errors.income}
                     />
                   </div>
@@ -124,21 +168,26 @@ class Register extends Component {
                   </div>
                   <br />
                   <div className="form-group">
+                    <small
+                      id="passwordHelpInline"
+                      className="text-muted float-left"
+                    >
+                      Password must be 6-30 characters long.
+                    </small>
                     <TextFieldGroup
                       placeholder="* Password"
                       name="password"
+                      type="password"
                       value={this.state.password}
                       onChange={this.onChange}
                       error={errors.password}
                     />
-                    <small id="passwordHelpInline" class="text-muted">
-                      Must be 6-30 characters long.
-                    </small>
                   </div>
                   <div className="form-group">
                     <TextFieldGroup
                       placeholder="* Confirm Password"
                       name="password2"
+                      type="password"
                       value={this.state.password2}
                       onChange={this.onChange}
                       error={errors.password2}
@@ -154,7 +203,7 @@ class Register extends Component {
                       id="defaultCheck1"
                       checked={this.state.terms}
                     />
-                    <label class="form-check-label" for="defaultCheck1">
+                    <label className="form-check-label">
                       I agree to the terms and conditions.
                     </label>
                     <hr />
@@ -181,4 +230,18 @@ class Register extends Component {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(Register);
