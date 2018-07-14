@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { connect } from 'react-redux';
-import { registerUser } from '../actions/authActions';
-import TextFieldGroup from './common/TextFieldGroup';
-import SelectListGroup from './common/SelectListGroup';
-import Footer from './layout/Footer';
+import { registerUser } from '../../actions/authActions';
+import TextFieldGroup from '../common/TextFieldGroup';
+import SelectListGroup from '../common/SelectListGroup';
+import Footer from '../layout/Footer';
 
 class Register extends Component {
   constructor() {
