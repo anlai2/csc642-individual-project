@@ -6,16 +6,21 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Register from './components/main/Register';
+import Home from './components/main/Home';
 import Verify from './components/main/Verify';
+import Invalid from './components/main/Invalid';
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Route exact path="/" component={Register} />
-            <Route exact path="/verify" component={Verify} />
-            <div className="container" />
+            <Switch>
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/verify" component={Verify} />
+              <Route exact path="*" component={Invalid} />
+            </Switch>
           </div>
         </Router>
       </Provider>

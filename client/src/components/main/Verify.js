@@ -13,7 +13,7 @@ class Verify extends Component {
   componentWillMount() {
     console.log(this.props);
     if (_.isEmpty(this.props.auth.user)) {
-      this.props.history.push('/');
+      this.props.history.push('/register');
     } else {
       console.log('YOU FILLED IT OUT WOOHOO');
       this.setState({ user: this.props.auth.user });
@@ -42,6 +42,7 @@ class Verify extends Component {
       <div className="App">
         <header className="App-header">
           <h2>CSC 642 Summer 2018 Individual Assignment Andy Lai</h2>
+          <h2>Results Verification Page Andy Lai</h2>
         </header>
         <div className="register">
           <div className="container">
@@ -56,7 +57,9 @@ class Verify extends Component {
                       <h3>
                         Name: {firstName} {lastName}
                       </h3>
-                      <p />
+                      <h3>
+                        address: {address} {zipcode}
+                      </h3>
                     </div>
                     <div className="col-md-4 d-none d-md-block">
                       <h4>Skill Set</h4>
