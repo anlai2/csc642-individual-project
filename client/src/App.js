@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
 import Register from './components/main/Register';
+import Terms from './components/main/Terms';
 import Home from './components/main/Home';
 import Verify from './components/main/Verify';
 import Invalid from './components/main/Invalid';
@@ -17,6 +18,7 @@ class App extends Component {
           <div className="App">
             <Switch>
               <Route exact path="/register" component={Register} />
+              <Route exact path="/terms" component={Terms} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/verify" component={Verify} />
               <Route exact path="*" component={Invalid} />

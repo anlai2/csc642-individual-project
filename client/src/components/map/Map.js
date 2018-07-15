@@ -9,7 +9,7 @@ export class MapComponent extends Component {
     return (
       <Map
         google={this.props.google}
-        zoom={16}
+        zoom={13}
         initialCenter={this.props.center}
       >
         <Marker

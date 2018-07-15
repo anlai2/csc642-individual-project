@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Marker } from 'google-maps-react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -75,6 +74,8 @@ class Verify extends Component {
                       <h3>Email: {email}</h3>
                       <br />
                       <h3>Phone Number: {phone}</h3>
+                      <br />
+                      <h3>Income: {income}</h3>
                     </div>
                   </div>
                 </div>

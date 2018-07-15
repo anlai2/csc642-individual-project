@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { connect } from 'react-redux';
@@ -74,7 +75,7 @@ class Register extends Component {
     const incomeOptions = [
       { label: 'Select Income', value: 'N/A' },
       { label: 'Less than $50K', value: 'Less than $50K' },
-      { label: 'Between $50 and $100K', value: 'Between $50 and $100K' },
+      { label: 'Between $50K and $100K', value: 'Between $50K and $100K' },
       { label: 'Greater than $100K', value: 'Greater than $100K' }
     ];
 
@@ -203,7 +204,11 @@ class Register extends Component {
                       checked={this.state.terms}
                     />
                     <label className="form-check-label ml-2 mt-2">
-                      I agree to the terms and conditions.
+                      I agree to the
+                      <Link to="/terms" target="_blank">
+                        {' '}
+                        terms and conditions.
+                      </Link>
                     </label>
                     <small>
                       <p className="text-danger">{errors.terms}</p>
