@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -86,7 +85,7 @@ class Register extends Component {
         <div className="register">
           <div className="container">
             <div className="row">
-              <div className="col-md-9 m-auto">
+              <div className="col-md-12 m-auto">
                 <h3 className="display-4 text-center mb-4 mt-4">
                   Registration Form
                 </h3>
@@ -222,16 +221,17 @@ class Register extends Component {
                 </form>
                 <br />
                 <br />
-                <div className="float-left">
-                  <button type="button" className="btn btn-secondary btn-lg">
+                <div className="clearfix">
+                  <button
+                    type="button"
+                    className="btn btn-secondary btn-lg float-left position-relative"
+                  >
                     Cancel
                   </button>
-                </div>
-                <div className="float-right">
                   <button
                     onClick={this.onSubmit}
                     type="button"
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg float-right"
                   >
                     Submit
                   </button>

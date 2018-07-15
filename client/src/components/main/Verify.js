@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -24,6 +23,21 @@ class Verify extends Component {
   render() {
     console.log(this.state);
 
+    const {
+      firstName,
+      lastName,
+      address,
+      zipcode,
+      education,
+      income,
+      phone,
+      email,
+      password,
+      password2,
+      terms,
+      recaptcha
+    } = this.state.user;
+
     return (
       <div className="App">
         <header className="App-header">
@@ -36,6 +50,20 @@ class Verify extends Component {
                 <h3 className="display-4 text-center mb-4 mt-4">
                   Verification Page
                 </h3>
+                <div className="card card-body bg-light mb-3">
+                  <div className="row">
+                    <div className="col-lg-6 col-md-4 col-8">
+                      <h3>
+                        Name: {firstName} {lastName}
+                      </h3>
+                      <p />
+                    </div>
+                    <div className="col-md-4 d-none d-md-block">
+                      <h4>Skill Set</h4>
+                      <ul className="list-group" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
