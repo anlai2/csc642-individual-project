@@ -235,7 +235,7 @@ class Register extends Component {
                 <br />
                 <div className="clearfix">
                   <button
-                    onClick={() => this.props.history.push('/home')}
+                    onClick={() => this.props.history.push('/')}
                     type="button"
                     className="btn btn-secondary btn-lg float-left position-relative"
                   >

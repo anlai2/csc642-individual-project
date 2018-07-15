@@ -12,11 +12,11 @@ class Home extends Component {
           <h5>Try these testing links</h5>
           <div className="d-flex justify-content-between">
             <button
-              onClick={() => this.props.history.push('/home')}
+              onClick={() => this.props.history.push('/')}
               type="button"
               className="btn btn-secondary btn-lg float-left"
             >
-              /home
+              /
             </button>
             <button
               onClick={() => this.props.history.push('/register')}
@@ -24,6 +24,13 @@ class Home extends Component {
               className="btn btn-info btn-lg float-left"
             >
               /register
+            </button>
+            <button
+              onClick={() => this.props.history.push('/verify')}
+              type="button"
+              className="btn btn-warning btn-lg float-left"
+            >
+              /terms
             </button>
             <button
               onClick={() => this.props.history.push('/verify')}
@@ -43,6 +50,7 @@ class Home extends Component {
           <div className="d-flex justify-content-between">
             <p>Current Page, on cancel press for /register</p>
             <p>Register Page, for form registration</p>
+            <p>Terms Page, for terms and conditions</p>
             <p>Verify Page, for successful registration (Protected Route)</p>
             <p>Does Not Exist Page, for invalid routes</p>
           </div>
