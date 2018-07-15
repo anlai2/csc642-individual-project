@@ -7,7 +7,7 @@ export class MapComponent extends Component {
   }
   render() {
     return (
-      <Map google={this.props.google} zoom={28}>
+      <Map google={this.props.google} zoom={16}>
         <Marker
           position={{
             lat: this.props.markerPosition.lat,

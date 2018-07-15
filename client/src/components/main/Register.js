@@ -15,8 +15,8 @@ class Register extends Component {
       lastName: '',
       address: '',
       zipcode: '',
-      education: '',
-      income: '',
+      education: 'N/A',
+      income: 'N/A',
       phone: '',
       email: '',
       password: '',
@@ -64,7 +64,7 @@ class Register extends Component {
     const { errors } = this.state;
 
     const educationOptions = [
-      { label: 'Select Education', value: 0 },
+      { label: 'Select Education', value: 'N/A' },
       { label: 'High School', value: 'High School' },
       { label: 'College', value: 'College' },
       { label: 'Graduate Studies', value: 'Graduate Studies' },
@@ -72,7 +72,7 @@ class Register extends Component {
     ];
 
     const incomeOptions = [
-      { label: 'Select Income', value: 0 },
+      { label: 'Select Income', value: 'N/A' },
       { label: 'Less than $50K', value: 'Less than $50K' },
       { label: 'Between $50 and $100K', value: 'Between $50 and $100K' },
       { label: 'Greater than $100K', value: 'Greater than $100K' }
