@@ -31,6 +31,8 @@ module.exports = function validateRegisterInput(data) {
 
   if (Validator.isEmpty(data.email)) {
     errors.email = 'Email field is required';
+  } else if (!Validator.isEmail(data.email)) {
+    errors.email = 'Email is invalid';
   }
 
   if (Validator.isEmpty(data.address)) {
@@ -51,10 +53,6 @@ module.exports = function validateRegisterInput(data) {
     !data.phone.match(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/)
   ) {
     errors.phone = 'Phone number must be valid';
-  }
-
-  if (!Validator.isEmail(data.email)) {
-    errors.email = 'Email is invalid';
   }
 
   if (Validator.isEmpty(data.password)) {
