@@ -3,6 +3,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Footer from '../layout/Footer';
+import Map from '../maps/Map';
 class Verify extends Component {
   //TODO: this.state = { user: {}} and uncomment componentWillMount for production.
   constructor() {
@@ -73,6 +74,13 @@ class Verify extends Component {
                       <h3>
                         Address: {address} {zipcode}
                       </h3>
+                      <Map
+                        isMarkerShown
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg0sl0BM-hjWg2fSCjBnTFa1MZJSX7-24"
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={<div style={{ height: `400px` }} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                      />
                     </div>
                     <div className="col-md-6 d-none d-md-block">
                       <h3>Email: {email}</h3>
