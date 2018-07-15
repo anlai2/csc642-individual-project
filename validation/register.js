@@ -23,10 +23,14 @@ module.exports = function validateRegisterInput(data) {
 
   if (Validator.isEmpty(data.firstName)) {
     errors.firstName = 'First name field is required';
+  } else if (!data.firstName.match(/^[A-z]+$/)) {
+    errors.firstName = 'First name must only be alphabet characters';
   }
 
   if (Validator.isEmpty(data.lastName)) {
     errors.lastName = 'Last name field is required';
+  } else if (!data.lastName.match(/^[A-z]+$/)) {
+    errors.lastName = 'Last name must only be alphabet characters';
   }
 
   if (Validator.isEmpty(data.email)) {
@@ -57,9 +61,7 @@ module.exports = function validateRegisterInput(data) {
 
   if (Validator.isEmpty(data.password)) {
     errors.password = 'Password field is required';
-  }
-
-  if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
+  } else if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
     errors.password = 'Password must be at least 6 characters';
   }
 
