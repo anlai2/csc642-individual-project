@@ -63,16 +63,20 @@ class Verify extends Component {
                 </h3>
                 <div className="card card-body bg-light mb-3">
                   <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-6">
                       <h3>
                         Name: {firstName} {lastName}
                       </h3>
+                      <br />
+                      <h3>Education: {education}</h3>
+                      <br />
                       <h3>
                         Address: {address} {zipcode}
                       </h3>
                     </div>
-                    <div className="col-md-4 d-none d-md-block">
+                    <div className="col-md-6 d-none d-md-block">
                       <h3>Email: {email}</h3>
+                      <br />
                       <h3>Phone Number: {phone}</h3>
                     </div>
                   </div>

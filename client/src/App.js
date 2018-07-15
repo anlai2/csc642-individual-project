@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store/configureStore';
 
 import Register from './components/main/Register';
 import Home from './components/main/Home';
@@ -12,7 +12,7 @@ import Invalid from './components/main/Invalid';
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={configureStore}>
         <Router>
           <div className="App">
             <Switch>
