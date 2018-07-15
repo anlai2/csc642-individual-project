@@ -26,7 +26,7 @@ class Home extends Component {
               /register
             </button>
             <button
-              onClick={() => this.props.history.push('/verify')}
+              onClick={() => this.props.history.push('/terms')}
               type="button"
               className="btn btn-warning btn-lg float-left"
             >
