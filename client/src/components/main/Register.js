@@ -249,6 +249,11 @@ class Register extends Component {
                     Submit
                   </button>
                 </div>
+                <div className="row-md-9">
+                  <p className="float-right">
+                    After submitting, you cannot go back to edit info
+                  </p>
+                </div>
               </div>
             </div>
           </div>

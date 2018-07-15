@@ -77,6 +77,15 @@ class Verify extends Component {
                       <br />
                       <h3>Income: {income}</h3>
                     </div>
+                    <div className="col-md-12 m-auto">
+                      <button
+                        onClick={() => this.props.history.push('/')}
+                        type="button"
+                        className="btn btn-info btn-lg"
+                      >
+                        Finish Reviewing
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <MapComponent
