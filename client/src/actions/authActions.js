@@ -28,16 +28,24 @@ export const setCurrentUser = user => {
 };
 
 export const convertAddress = (address, zipcode) => dispatch => {
-  Geocode.setApiKey('AIzaSyAv3zg5iVWUsWLoAcsDO1-DqyWlcPsAHow');
-  Geocode.enableDebug();
-
-  Geocode.fromAddress(address + ' ' + zipcode)
+  let formattedAddress = address.split(' ').join('+') + ',';
+  axios
+    .get(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}+${zipcode}&key=AIzaSyAv3zg5iVWUsWLoAcsDO1-DqyWlcPsAHow`
+    )
     .then(res => {
-      const { lat, lng } = res.results[0].geometry.location;
+      console.log(res);
       dispatch({
         type: ADDRESS_TO_LATLNG,
-        payload: { lat, lng }
+        payload: {
+          lat: res.data.results[0].geometry.location.lat,
+          lng: res.data.results[0].geometry.location.lng
+        }
       });
     })
     .catch(err => console.log(err));
+  // dispatch({
+  //   type: ADDRESS_TO_LATLNG,
+  //   payload: { lat, lng }
+  // });
 };

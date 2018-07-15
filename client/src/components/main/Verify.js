@@ -84,21 +84,21 @@ class Verify extends Component {
                   markerPosition={{
                     lat:
                       this.state.user.latlng === undefined
-                        ? 37.7212
+                        ? null
                         : this.state.user.latlng.lat,
                     lng:
                       this.state.user.latlng === undefined
-                        ? -122.476844
+                        ? null
                         : this.state.user.latlng.lng
                   }}
                   center={{
                     lat:
                       this.state.user.latlng === undefined
-                        ? 37.7212
+                        ? null
                         : this.state.user.latlng.lat,
                     lng:
                       this.state.user.latlng === undefined
-                        ? -122.476844
+                        ? null
                         : this.state.user.latlng.lng
                   }}
                   zoom={15}
