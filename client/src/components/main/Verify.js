@@ -2,23 +2,33 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import Footer from '../layout/Footer';
 class Verify extends Component {
+  //TODO: this.state = { user: {}} and uncomment componentWillMount for production.
   constructor() {
     super();
     this.state = {
-      user: {}
+      user: {
+        firstName: 'Andy',
+        lastName: 'Lai',
+        address: '1839 33rd Ave',
+        zipcode: '94122',
+        education: 'Graduate Studies',
+        income: 'Greater than 100K',
+        phone: '4155729973',
+        email: 'anlaics2@gmail.com'
+      }
     };
   }
-  componentWillMount() {
-    console.log(this.props);
-    if (_.isEmpty(this.props.auth.user)) {
-      this.props.history.push('/register');
-    } else {
-      console.log('YOU FILLED IT OUT WOOHOO');
-      this.setState({ user: this.props.auth.user });
-    }
-  }
+  // componentWillMount() {
+  //   console.log(this.props);
+  //   if (_.isEmpty(this.props.auth.user)) {
+  //     this.props.history.push('/register');
+  //   } else {
+  //     console.log('YOU FILLED IT OUT WOOHOO');
+  //     this.setState({ user: this.props.auth.user });
+  //   }
+  // }
 
   render() {
     console.log(this.state);
@@ -47,13 +57,13 @@ class Verify extends Component {
         <div className="register">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 m-auto">
+              <div className="col-md-12 m-auto">
                 <h3 className="display-4 text-center mb-4 mt-4">
                   Verification Page
                 </h3>
                 <div className="card card-body bg-light mb-3">
                   <div className="row">
-                    <div className="col-lg-6 col-md-4 col-8">
+                    <div className="col-md-8">
                       <h3>
                         Name: {firstName} {lastName}
                       </h3>
@@ -71,6 +81,7 @@ class Verify extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

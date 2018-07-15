@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Footer from '../layout/Footer';
 class Home extends Component {
   render() {
     return (
@@ -43,10 +43,11 @@ class Home extends Component {
           <div className="d-flex justify-content-between">
             <p>Current Page, on cancel press for /register</p>
             <p>Register Page, for form registration</p>
-            <p>Verify Page, for successful registration</p>
+            <p>Verify Page, for successful registration (Protected Route)</p>
             <p>Does Not Exist Page, for invalid routes</p>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
