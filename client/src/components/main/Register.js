@@ -143,6 +143,12 @@ class Register extends Component {
                     options={incomeOptions}
                     error={errors.income}
                   />
+                  <small
+                    id="passwordHelpInline"
+                    className="text-muted float-left"
+                  >
+                    9 Digit phone number in any STANDARD format
+                  </small>
                   <br />
                   <div className="row">
                     <div className="col">

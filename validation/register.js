@@ -47,6 +47,10 @@ module.exports = function validateRegisterInput(data) {
 
   if (Validator.isEmpty(data.phone)) {
     errors.phone = 'Phone number is required';
+  } else if (
+    !data.phone.match(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/)
+  ) {
+    errors.phone = 'Phone number must be valid';
   }
 
   if (!Validator.isEmail(data.email)) {

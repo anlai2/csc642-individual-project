@@ -58,12 +58,12 @@ class Verify extends Component {
                         Name: {firstName} {lastName}
                       </h3>
                       <h3>
-                        address: {address} {zipcode}
+                        Address: {address} {zipcode}
                       </h3>
                     </div>
                     <div className="col-md-4 d-none d-md-block">
-                      <h4>Skill Set</h4>
-                      <ul className="list-group" />
+                      <h3>Email: {email}</h3>
+                      <h3>Phone Number: {phone}</h3>
                     </div>
                   </div>
                 </div>
