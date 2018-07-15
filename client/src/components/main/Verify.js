@@ -17,10 +17,13 @@ class Verify extends Component {
       this.props.history.push('/');
     } else {
       console.log('YOU FILLED IT OUT WOOHOO');
+      this.setState({ user: this.props.auth.user });
     }
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div className="App">
         <header className="App-header">

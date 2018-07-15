@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -85,12 +86,12 @@ class Register extends Component {
         <div className="register">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 m-auto">
+              <div className="col-md-9 m-auto">
                 <h3 className="display-4 text-center mb-4 mt-4">
                   Registration Form
                 </h3>
                 <small className="d-block pb-3">* = required fields</small>
-                <form noValidate onSubmit={this.onSubmit}>
+                <form noValidate className="col-md-12 m-auto">
                   <div className="row">
                     <div className="col">
                       <TextFieldGroup
@@ -112,45 +113,37 @@ class Register extends Component {
                     </div>
                   </div>
                   <br />
-                  <div className="form-group">
-                    <TextFieldGroup
-                      placeholder="* Address"
-                      name="address"
-                      value={this.state.address}
-                      onChange={this.onChange}
-                      error={errors.address}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <TextFieldGroup
-                      placeholder="* Zipcode"
-                      name="zipcode"
-                      value={this.state.zipcode}
-                      onChange={this.onChange}
-                      error={errors.zipcode}
-                    />
-                  </div>
+                  <TextFieldGroup
+                    placeholder="* Address"
+                    name="address"
+                    value={this.state.address}
+                    onChange={this.onChange}
+                    error={errors.address}
+                  />
+                  <TextFieldGroup
+                    placeholder="* Zipcode"
+                    name="zipcode"
+                    value={this.state.zipcode}
+                    onChange={this.onChange}
+                    error={errors.zipcode}
+                  />
                   <br />
-                  <div className="form-group">
-                    <SelectListGroup
-                      placeholder="Education"
-                      name="education"
-                      value={this.state.education}
-                      onChange={this.onChange}
-                      options={educationOptions}
-                      error={errors.education}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <SelectListGroup
-                      placeholder="Income"
-                      name="income"
-                      value={this.state.income}
-                      onChange={this.onChange}
-                      options={incomeOptions}
-                      error={errors.income}
-                    />
-                  </div>
+                  <SelectListGroup
+                    placeholder="Education"
+                    name="education"
+                    value={this.state.education}
+                    onChange={this.onChange}
+                    options={educationOptions}
+                    error={errors.education}
+                  />
+                  <SelectListGroup
+                    placeholder="Income"
+                    name="income"
+                    value={this.state.income}
+                    onChange={this.onChange}
+                    options={incomeOptions}
+                    error={errors.income}
+                  />
                   <br />
                   <div className="row">
                     <div className="col">
@@ -173,66 +166,76 @@ class Register extends Component {
                     </div>
                   </div>
                   <br />
-                  <div className="form-group">
-                    <small
-                      id="passwordHelpInline"
-                      className="text-muted float-left"
-                    >
-                      Password must be 6-30 characters long.
-                    </small>
-                    <TextFieldGroup
-                      placeholder="* Password"
-                      name="password"
-                      type="password"
-                      value={this.state.password}
-                      onChange={this.onChange}
-                      error={errors.password}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <TextFieldGroup
-                      placeholder="* Confirm Password"
-                      name="password2"
-                      type="password"
-                      value={this.state.password2}
-                      onChange={this.onChange}
-                      error={errors.password2}
-                    />
-                  </div>
+                  <small
+                    id="passwordHelpInline"
+                    className="text-muted float-left"
+                  >
+                    Password must be 6-30 characters long.
+                  </small>
+                  <TextFieldGroup
+                    placeholder="* Password"
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    error={errors.password}
+                  />
+                  <TextFieldGroup
+                    placeholder="* Confirm Password"
+                    name="password2"
+                    type="password"
+                    value={this.state.password2}
+                    onChange={this.onChange}
+                    error={errors.password2}
+                  />
                   <div className="form-group float-left">
                     <input
-                      className="form-check-input"
                       type="checkbox"
                       onClick={() =>
                         this.setState({ terms: !this.state.terms })
                       }
-                      id="defaultCheck1"
                       checked={this.state.terms}
                     />
-                    <label className="form-check-label">
+                    <label className="form-check-label ml-2 mt-2">
                       I agree to the terms and conditions.
                     </label>
                     <small>
                       <p className="text-danger">{errors.terms}</p>
                     </small>
-                    <hr />
+                  </div>
+                  <hr />
+                  <div className="form-group">
                     <ReCAPTCHA
                       ref="recaptcha"
                       sitekey="6LdA7GMUAAAAANYVPP-K1G8PQu-yjMtYp5yE3MGG"
                       onChange={() => this.setState({ recaptcha: true })}
                       onExpired={() => this.setState({ recaptcha: false })}
                     />
+                  </div>
+                  <br />
+                  <br />
+                  <div className="form-group float-left">
                     <small>
                       <p className="text-danger">{errors.recaptcha}</p>
                     </small>
                   </div>
-                  <div className="form-group">
-                    <input
-                      type="submit"
-                      className="btn btn-primary btn-block mt-6"
-                    />
-                  </div>
                 </form>
+                <br />
+                <br />
+                <div className="float-left">
+                  <button type="button" className="btn btn-secondary btn-lg">
+                    Cancel
+                  </button>
+                </div>
+                <div className="float-right">
+                  <button
+                    onClick={this.onSubmit}
+                    type="button"
+                    className="btn btn-primary btn-lg"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
