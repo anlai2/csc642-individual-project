@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
+import { Marker } from 'google-maps-react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Footer from '../layout/Footer';
-import Map from '../maps/Map';
+import MapComponent from '../map/Map';
+import { convertAddress } from '../../actions/authActions';
+import Geocode from 'react-geocode';
+
 class Verify extends Component {
   //TODO: this.state = { user: {}} and uncomment componentWillMount for production.
   constructor() {
     super();
     this.state = {
-      user: {
-        firstName: 'Andy',
-        lastName: 'Lai',
-        address: '1839 33rd Ave',
-        zipcode: '94122',
-        education: 'Graduate Studies',
-        income: 'Greater than 100K',
-        phone: '4155729973',
-        email: 'anlaics2@gmail.com'
-      }
+      user: {}
     };
   }
-  // componentWillMount() {
-  //   console.log(this.props);
-  //   if (_.isEmpty(this.props.auth.user)) {
-  //     this.props.history.push('/register');
-  //   } else {
-  //     console.log('YOU FILLED IT OUT WOOHOO');
-  //     this.setState({ user: this.props.auth.user });
-  //   }
-  // }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ user: nextProps.auth.user });
+  }
+
+  componentDidMount() {
+    if (_.isEmpty(this.props.auth.user)) {
+      this.props.history.push('/register');
+      return;
+    } else {
+      console.log('YOU FILLED IT OUT WOOHOO');
+      this.setState({ user: this.props.auth.user });
+    }
+  }
 
   render() {
     console.log(this.state);
+    console.log(this.props);
 
     const {
       firstName,
@@ -42,11 +43,7 @@ class Verify extends Component {
       education,
       income,
       phone,
-      email,
-      password,
-      password2,
-      terms,
-      recaptcha
+      email
     } = this.state.user;
 
     return (
@@ -74,13 +71,6 @@ class Verify extends Component {
                       <h3>
                         Address: {address} {zipcode}
                       </h3>
-                      <Map
-                        isMarkerShown
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg0sl0BM-hjWg2fSCjBnTFa1MZJSX7-24"
-                        loadingElement={<div style={{ height: `100%` }} />}
-                        containerElement={<div style={{ height: `400px` }} />}
-                        mapElement={<div style={{ height: `100%` }} />}
-                      />
                     </div>
                     <div className="col-md-6 d-none d-md-block">
                       <h3>Email: {email}</h3>
@@ -89,6 +79,31 @@ class Verify extends Component {
                     </div>
                   </div>
                 </div>
+                <MapComponent
+                  google={this.props.google}
+                  markerPosition={{
+                    lat:
+                      this.state.user.latlng === undefined
+                        ? 37.7212
+                        : this.state.user.latlng.lat,
+                    lng:
+                      this.state.user.latlng === undefined
+                        ? -122.476844
+                        : this.state.user.latlng.lng
+                  }}
+                  center={{
+                    lat:
+                      this.state.user.latlng === undefined
+                        ? 37.7212
+                        : this.state.user.latlng.lat,
+                    lng:
+                      this.state.user.latlng === undefined
+                        ? -122.476844
+                        : this.state.user.latlng.lng
+                  }}
+                  zoom={15}
+                  onClick={this.onMapClicked}
+                />
               </div>
             </div>
           </div>
@@ -109,5 +124,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  { convertAddress }
 )(Verify);

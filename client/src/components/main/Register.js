@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { connect } from 'react-redux';
-import { registerUser } from '../../actions/authActions';
+import { registerUser, convertAddress } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import Footer from '../layout/Footer';
@@ -23,7 +23,8 @@ class Register extends Component {
       password2: '',
       terms: false,
       recaptcha: false,
-      errors: {}
+      errors: {},
+      latlng: {}
     };
   }
 
@@ -266,5 +267,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { registerUser }
+  { registerUser, convertAddress }
 )(Register);
