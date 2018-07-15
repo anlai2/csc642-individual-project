@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import Footer from '../layout/Footer';
 import MapComponent from '../map/Map';
 import { convertAddress } from '../../actions/authActions';
-import Geocode from 'react-geocode';
 
 class Verify extends Component {
   //TODO: this.state = { user: {}} and uncomment componentWillMount for production.
