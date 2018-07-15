@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { GET_ERRORS, REGISTER_USER_DATA, ADDRESS_TO_LATLNG } from './types';
-import Geocode from 'react-geocode';
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
