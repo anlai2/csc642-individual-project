@@ -229,7 +229,7 @@ class Register extends Component {
                   </div>
                   <br />
                   <br />
-                  <div className="form-group float-left">
+                  <div className="d-flex justify-content-start">
                     <small>
                       <p className="text-danger">{errors.recaptcha}</p>
                     </small>
@@ -237,7 +237,7 @@ class Register extends Component {
                 </form>
                 <br />
                 <br />
-                <div className="clearfix">
+                <div className="d-flex justify-content-between">
                   <button
                     onClick={() => this.props.history.push('/')}
                     type="button"
