@@ -121,13 +121,17 @@ class Register extends Component {
                     onChange={this.onChange}
                     error={errors.address}
                   />
-                  <TextFieldGroup
-                    placeholder="* Zipcode"
-                    name="zipcode"
-                    value={this.state.zipcode}
-                    onChange={this.onChange}
-                    error={errors.zipcode}
-                  />
+                  <div className="row">
+                    <div className="col-md-3">
+                      <TextFieldGroup
+                        placeholder="* Zipcode"
+                        name="zipcode"
+                        value={this.state.zipcode}
+                        onChange={this.onChange}
+                        error={errors.zipcode}
+                      />
+                    </div>
+                  </div>
                   <br />
                   <SelectListGroup
                     placeholder="Education"
