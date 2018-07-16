@@ -12,6 +12,13 @@ class Terms extends Component {
             Terms and Conditions
           </h3>
           <h5>We will never share your information with anyone.</h5>
+          <button
+            onClick={() => this.props.history.push('/')}
+            type="button"
+            className="btn btn-info btn-lg"
+          >
+            Go Home
+          </button>
         </div>
         <Footer />
       </div>

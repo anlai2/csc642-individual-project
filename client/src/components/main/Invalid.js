@@ -9,6 +9,13 @@ class Invalid extends Component {
         </header>
         <h1 className="display-4">Page Not Found</h1>
         <p>Sorry, this page does not exist</p>
+        <button
+          onClick={() => this.props.history.push('/')}
+          type="button"
+          className="btn btn-info btn-lg"
+        >
+          Go Home
+        </button>
         <Footer />
       </div>
     );
