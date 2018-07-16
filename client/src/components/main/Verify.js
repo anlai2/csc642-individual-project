@@ -83,7 +83,7 @@ class Verify extends Component {
                         type="button"
                         className="btn btn-info btn-lg"
                       >
-                        Finish Reviewing
+                        Finish
                       </button>
                     </div>
                   </div>

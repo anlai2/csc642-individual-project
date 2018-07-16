@@ -92,7 +92,7 @@ class Register extends Component {
                   Registration Form
                 </h3>
                 <small className="d-block pb-3">* = required fields</small>
-                <form noValidate className="col-md-12 m-auto">
+                <form noValidate className="col-md-9 m-auto">
                   <div className="row">
                     <div className="col">
                       <TextFieldGroup
@@ -122,7 +122,7 @@ class Register extends Component {
                     error={errors.address}
                   />
                   <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-sm-6 col-md-4 col-lg-4">
                       <TextFieldGroup
                         placeholder="* Zipcode"
                         name="zipcode"
