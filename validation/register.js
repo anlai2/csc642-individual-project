@@ -33,9 +33,11 @@ module.exports = function validateRegisterInput(data) {
     errors.lastName = 'Last name must only be alphabet characters';
   }
 
-  if (Validator.isEmpty(data.email)) {
-    errors.email = 'Email field is required';
-  } else if (!Validator.isEmail(data.email)) {
+  if (!Validator.isLength(data.email, { min: 2, max: 40 })) {
+    errors.address = 'Email must be between 2 and 40 alphanumeric characters';
+  }
+
+  if (!Validator.isEmail(data.email) && data.email.length >= 1) {
     errors.email = 'Email is invalid';
   }
 
