@@ -48,11 +48,11 @@ class Home extends Component {
             </button>
           </div>
           <div className="d-flex justify-content-between">
-            <p>Current Page, on cancel press for /register</p>
-            <p>Register Page, for form registration</p>
-            <p>Terms Page, for terms and conditions</p>
-            <p>Verify Page, for successful registration (Protected Route)</p>
-            <p>Does Not Exist Page, for invalid routes</p>
+            <p>Current Page</p>
+            <p>Register Page</p>
+            <p>Terms Page</p>
+            <p>Verify Page (Protected Route)</p>
+            <p>404 Page</p>
           </div>
         </div>
         <Footer />
