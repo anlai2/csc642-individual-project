@@ -73,7 +73,7 @@ class Register extends Component {
     ];
 
     const incomeOptions = [
-      { label: 'Select Income', value: 'N/A' },
+      { label: 'Select Yearly Income', value: 'N/A' },
       { label: 'Less than $50K', value: 'Less than $50K' },
       { label: 'Between $50K and $100K', value: 'Between $50K and $100K' },
       { label: 'Greater than $100K', value: 'Greater than $100K' }
@@ -142,7 +142,7 @@ class Register extends Component {
                     error={errors.education}
                   />
                   <SelectListGroup
-                    placeholder="Income"
+                    placeholder="Income (Yearly)"
                     name="income"
                     value={this.state.income}
                     onChange={this.onChange}
@@ -254,8 +254,9 @@ class Register extends Component {
                   </button>
                 </div>
                 <div className="row-md-9">
-                  <p className="float-right">
-                    After submitting, you cannot go back to edit info
+                  <p className="float-center">
+                    After submitting, you cannot go back to edit info, but you
+                    will be able to review your information.
                   </p>
                 </div>
               </div>

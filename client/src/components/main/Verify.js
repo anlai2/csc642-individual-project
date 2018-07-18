@@ -45,74 +45,76 @@ class Verify extends Component {
     } = this.state.user;
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h2>CSC 642 Summer 2018 Individual Assignment Andy Lai</h2>
-          <h2>Results Verification Page Andy Lai</h2>
-        </header>
-        <div className="register">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 m-auto">
-                <h3 className="display-4 text-center mb-4 mt-4">
-                  Verification Page
-                </h3>
-                <div className="card card-body bg-light mb-3">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <h3>
-                        Name: {firstName} {lastName}
-                      </h3>
-                      <br />
-                      <h3>Education: {education}</h3>
-                      <br />
-                      <h3>
-                        Address: {address} {zipcode}
-                      </h3>
-                    </div>
-                    <div className="col-md-6 d-none d-md-block">
-                      <h3>Email: {email}</h3>
-                      <br />
-                      <h3>Phone Number: {phone}</h3>
-                      <br />
-                      <h3>Income: {income}</h3>
-                    </div>
-                    <div className="col-md-12 m-auto">
-                      <button
-                        onClick={() => this.props.history.push('/')}
-                        type="button"
-                        className="btn btn-info btn-lg"
-                      >
-                        Finish
-                      </button>
+      <div>
+        <div className="App">
+          <header className="App-header">
+            <h2>CSC 642 Summer 2018 Individual Assignment Andy Lai</h2>
+            <h2>Results Verification Page Andy Lai</h2>
+          </header>
+          <div className="register">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12 m-auto">
+                  <h3 className="display-4 text-center mb-4 mt-4">
+                    Verification Page
+                  </h3>
+                  <div className="card card-body bg-light mb-3">
+                    <div className="row">
+                      <div className="col-md-6">
+                        <h3>
+                          Name: {firstName} {lastName}
+                        </h3>
+                        <br />
+                        <h3>Education: {education}</h3>
+                        <br />
+                        <h3>
+                          Address: {address} {zipcode}
+                        </h3>
+                      </div>
+                      <div className="col-md-6 d-none d-md-block">
+                        <h3>Email: {email}</h3>
+                        <br />
+                        <h3>Phone Number: {phone}</h3>
+                        <br />
+                        <h3>Income: {income}</h3>
+                      </div>
+                      <div className="col-md-12 m-auto">
+                        <button
+                          onClick={() => this.props.history.push('/')}
+                          type="button"
+                          className="btn btn-info btn-lg"
+                        >
+                          Finish
+                        </button>
+                      </div>
                     </div>
                   </div>
+                  <MapComponent
+                    google={this.props.google}
+                    markerPosition={{
+                      lat:
+                        this.state.user.latlng === undefined
+                          ? null
+                          : this.state.user.latlng.lat,
+                      lng:
+                        this.state.user.latlng === undefined
+                          ? null
+                          : this.state.user.latlng.lng
+                    }}
+                    center={{
+                      lat:
+                        this.state.user.latlng === undefined
+                          ? null
+                          : this.state.user.latlng.lat,
+                      lng:
+                        this.state.user.latlng === undefined
+                          ? null
+                          : this.state.user.latlng.lng
+                    }}
+                    zoom={15}
+                    onClick={this.onMapClicked}
+                  />
                 </div>
-                <MapComponent
-                  google={this.props.google}
-                  markerPosition={{
-                    lat:
-                      this.state.user.latlng === undefined
-                        ? null
-                        : this.state.user.latlng.lat,
-                    lng:
-                      this.state.user.latlng === undefined
-                        ? null
-                        : this.state.user.latlng.lng
-                  }}
-                  center={{
-                    lat:
-                      this.state.user.latlng === undefined
-                        ? null
-                        : this.state.user.latlng.lat,
-                    lng:
-                      this.state.user.latlng === undefined
-                        ? null
-                        : this.state.user.latlng.lng
-                  }}
-                  zoom={15}
-                  onClick={this.onMapClicked}
-                />
               </div>
             </div>
           </div>

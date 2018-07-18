@@ -33,8 +33,13 @@ module.exports = function validateRegisterInput(data) {
     errors.lastName = 'Last name must only be alphabet characters';
   }
 
-  if (!Validator.isLength(data.email, { min: 2, max: 40 })) {
-    errors.address = 'Email must be between 2 and 40 alphanumeric characters';
+  if (
+    !Validator.isLength(
+      data.email,
+      { min: 2, max: 40 } && data.email.length !== 0
+    )
+  ) {
+    errors.email = 'Email must be between 2 and 40 alphanumeric characters';
   }
 
   if (!Validator.isEmail(data.email) && data.email.length >= 1) {
