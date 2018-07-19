@@ -153,7 +153,7 @@ class Register extends Component {
                     id="passwordHelpInline"
                     className="text-muted float-left"
                   >
-                    9 Digit phone number in any STANDARD format
+                    10 Digit phone number in any STANDARD format
                   </small>
                   <br />
                   <div className="row">
